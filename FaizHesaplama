@@ -1,10 +1,13 @@
 
-        static void Main(string[] args)
+       
+static void Main(string[] args)
         {
           
             DateTime start = Convert.ToDateTime("01.01.2012");
             DateTime end = Convert.ToDateTime("01.01.2018");
             double totalamount = 10000;
+            double amount = 0;
+            double toplamfaiz = 0;
             double[] list = { 5.75,5.75,6.60, 5.75, 5.75, 5.75, 5.75, 5.75, 5.75, 5.75, 5.75, 5.00, 5, 4.6, 4.6, 4.5, 4.5, 4.15, 5, 4.15, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4.25, 5, 4, 4, 4, 5.65, 4, 5, 7.5, 4, 4, 6.75, 4, 5, 4, 4, 4, 3.5, 3.25, 5, 3, 3, 2.75, 2.75, 4.8, 5, 3.5, 2.75, 2.75, 2.75, 3, 5, 2.75, 2.5, 2.75, 3, 3.6, 5, 2.75, 2.5, 2.5, 2.5, 3.6 };
       
             for( int i=0;i<list.Length;i++)
@@ -20,16 +23,16 @@
                     {
                         break;
                     }
-                    double amount = (10000 * totaldays * list[i]) / 36500;
+                   amount = (10000 * totaldays * list[i]) / 36500;
                     amount = Math.Round(amount, 2);
-                 
+                    toplamfaiz += amount;
                     totalamount += amount;
                         
                       
                     Console.WriteLine(x.ToString("dd.MM.yyyy") + " - " + x.AddMonths(1).ToString("dd.MM.yyyy") + " tarihine kadar " + totaldays + " gün" + " " +list[i] +"       " + amount);
-                    
+                  
                 }
-               Console.WriteLine("İsleyen toplam faiz tutarı:" + totalamount.ToString());
+               Console.WriteLine("İsleyen toplam faiz tutarı:" + toplamfaiz.ToString());
                 Console.WriteLine("toplam borç miktarı:" + totalamount.ToString());
                     
             }
